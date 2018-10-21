@@ -11,7 +11,7 @@ var createScatterPlot = function(sampleSize, scaleType){
     // vega specification
     var vlSpec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
-        "data": { "url": "exoplanet.eu_catalog.csv"},
+        "data": { "url": "data/exoplanet.eu_catalog.csv"},
         "transform": [
             {"filter": {"field": "mass", "valid": true}}, // we consider possible errors in the data ; if mass = None / NaN it will be neglected
             {"filter": {"field": "star_mass", "valid": true}}, // we consider possible errors in the data ; if star_mass = None / NaN it will be neglected
@@ -42,7 +42,7 @@ var createHistogram = function(){
     
     var vlSpec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
-        "data": { "url": "exoplanet.eu_catalog.csv"},
+        "data": { "url": "data/exoplanet.eu_catalog.csv"},
         "transform": [
             {"filter": {"field": "mass", "valid": true}}, // we consider possible errors in the data ; if mass = None / NaN it will be neglected
             { "filter" : { "field" : "detection_type", "oneOf" : ["Microlensing","Primary Transit","Radial Velocity"] } }
@@ -62,7 +62,7 @@ var createLinePlot = function(){
     vlSpec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
         "data": {
-            "url": "exoplanet.eu_catalog.csv",
+            "url": "data/exoplanet.eu_catalog.csv",
         },
         "transform": [
             {"filter": {"field": "detection_type", "oneOf": ["Radial Velocity", "Primary Transit", "Microlensing"]}},
