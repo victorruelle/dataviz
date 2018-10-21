@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>INF552 - Exercice 3</title>
+        <script src="https://cdn.jsdelivr.net/npm/vega@4.2.0/build/vega.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc6/build/vega-lite.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.19.2/build/vega-embed.js"></script>
+        <script src="js/viz.js"></script>
+        <style>
+        #rightCol {
+            float:right;
+            font-family: sans-serif;
+            border-left: 1px solid #AAA;
+            padding-left: 1em;
+        }
+
+        #discOverTime{
+            border-top: 1px solid #AAA;
+            padding-top: 1em;
+        }
+
+        #massHist {
+            padding-bottom: .5em;
+        }
+
+        .formLb {
+            font-family:sans-serif;
+            font-size:70%;
+            padding-left: 5em;
+        }
+        </style>
+    </head>
+
+    <body onload="createViz();">
+        <div id="rightCol">
+            <div id="massHist"></div>
+            <div id="discoverTime"></div>
+        </div>
+        <!-- div that will be populated with the visualization -->
+        <div>
+            <div id="viz"></div>
+            <input type="button" value="log" onclick="setScale();" id="scaleBt"/>
+            <div>
+                <form>
+                    <input type="text" name="sampleField" value="*" id="sampleTf" onkeydown="handleKeyEvent(event);"/>
+                    <input type="button" value="Sample" onclick="setSample();" id="sampleBt"/>
+                    <span class="formLb">Scale:</span>
+                    <select id="scaleSel" onchange="setScale();">
+                       <option value="linear">Linear</option>
+                       <option value="log">Log</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>
